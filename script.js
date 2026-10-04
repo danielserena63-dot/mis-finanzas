@@ -1,3 +1,11 @@
+const SUPABASE_URL = "https://tzfgutdoseyescbjocjg.supabase.co";
+
+const SUPABASE_KEY = "Finanzas2027";
+
+const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
 let movimientos = JSON.parse(localStorage.getItem("movimientos")) || [];
 
 let chart;
@@ -18,13 +26,17 @@ function agregarMovimiento() {
         return;
     }
 
-   movimientos.push({
+  const nuevoMovimiento = {
     descripcion,
     cantidad,
     tipo,
     categoria,
-    fecha: new Date().toLocaleString("es-MX")
-});
+    fecha: new Date().toLocaleDateString("es-MX")
+};
+
+movimientos.push(nuevoMovimiento);
+
+guardarMovimientoSupabase(nuevoMovimiento);
 
     guardarDatos();
     actualizarPantalla();
@@ -141,3 +153,31 @@ function actualizarGrafica() {
 }
 
 actualizarPantalla();
+
+async function guardarMovimientoSupabase(movimiento) {
+
+    const { error } = await supabase
+        .from("movimientos")
+        .insert([movimiento]);
+
+    if (error) {
+        console.error("Error al guardar:", error);
+    }
+}
+
+async function cargarMovimientosSupabase() {
+
+    const { data, error } = await supabase
+        .from("movimientos")
+        .select("*")
+        .order("id", { ascending: true });
+
+    if (error) {
+        console.error(error);
+        return;
+    }
+
+    movimientos = data || [];
+
+    cargarMovimientosSupabase();
+}
