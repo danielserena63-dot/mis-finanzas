@@ -179,5 +179,8 @@ async function cargarMovimientosSupabase() {
 
     movimientos = data || [];
 
-    cargarMovimientosSupabase();
+    actualizarPantalla();
 }
+
+    cargarMovimientosSupabase();
+
