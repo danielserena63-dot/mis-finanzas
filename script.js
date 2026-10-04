@@ -2,7 +2,7 @@ const SUPABASE_URL = "https://tzfgutdoseyescbjocjg.supabase.co";
 
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6Zmd1dGRvc2V5ZXNjYmpvY2pnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTExMjM5NTYsImV4cCI6MjEwNjY5OTk1Nn0.LBECmzsJKXx1DswqJ4Kmom_3eTcA8YSlrHWqmDGAquM";
 
-const supabase = window.supabase.createClient(
+const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
@@ -156,7 +156,7 @@ actualizarPantalla();
 
 async function guardarMovimientoSupabase(movimiento) {
 
-    const { error } = await supabase
+    const { error } = await supabaseClient
         .from("movimientos")
         .insert([movimiento]);
 
@@ -167,7 +167,7 @@ async function guardarMovimientoSupabase(movimiento) {
 
 async function cargarMovimientosSupabase() {
 
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
         .from("movimientos")
         .select("*")
         .order("id", { ascending: true });
