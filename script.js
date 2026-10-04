@@ -1,6 +1,6 @@
 const SUPABASE_URL = "https://tzfgutdoseyescbjocjg.supabase.co";
 
-const SUPABASE_KEY = "Finanzas2027";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6Zmd1dGRvc2V5ZXNjYmpvY2pnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTExMjM5NTYsImV4cCI6MjEwNjY5OTk1Nn0.LBECmzsJKXx1DswqJ4Kmom_3eTcA8YSlrHWqmDGAquM";
 
 const supabase = window.supabase.createClient(
     SUPABASE_URL,
