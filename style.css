@@ -1,0 +1,98 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f6f8;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+h2{
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+.resumen{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.card{
+    flex:1;
+    min-width:180px;
+    padding:20px;
+    border-radius:15px;
+    color:white;
+    text-align:center;
+}
+
+.ingresos{
+    background:#27ae60;
+}
+
+.gastos{
+    background:#e74c3c;
+}
+
+.saldo{
+    background:#3498db;
+}
+
+.formulario{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+input,
+select,
+button{
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ddd;
+}
+
+button{
+    background:#3498db;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    border:none;
+}
+
+button:hover{
+    background:#2980b9;
+}
+
+.movimiento{
+    background:white;
+    margin-top:10px;
+    padding:15px;
+    border-radius:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.eliminar{
+    background:red;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:8px;
+}
